@@ -1,0 +1,21 @@
+# ALL THESE WERE TRAINED ON RANDOMIZED WEIGHTS, BE SURE TO TRAIN THEM AGAIN ON PRETRAINED WEIGHTS
+
+
+# both the inception models are in another file
+# Inception v3 (30 epochs, overfitting after this) acc = 82.8125%, initial acc = 0.5 (random guessing) no normailze() no grayscale(), lr = ReduceLROnPlateau, grad_clip value  = 0.1 
+# InceptionResnetv2 test acc = 89.0625% (31 epoch, overfitting after this), initial acc = 0.5 (random guessing) no normailze() no grayscale(), lr = ReduceLROnPlateau, grad_clip value  = 0.1 (54 million params)
+
+
+# only these models were trained on pre-trained weights, 
+# after the given epochs the model overfit
+# ViT (Vision transformers)( vit_b_16(weights=torchvision.models.ViT_B_16_Weights.IMAGENET1K_SWAG_E2E_V1) 85M params) 20 or 30? epochs acc = 82.8125, initial acc = 56% (only the classifier was trained, upper layers were frozen)
+# ViT (Vision transformers)(vit_l_16(weights=torchvision.models.ViT_L_16_Weights.IMAGENET1K_SWAG_E2E_V1) 304M params) 10 epochs acc = 92.1875, initial acc = 48%  (only the classifier was trained, upper layers were frozen)
+
+# after around 5 epochs resnet50 avg_acc = 93.75%, initial acc = 56, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = ResNet50_Weights.IMAGENET1K_V2, ALL LAYERS TRAINABLE
+
+# DenseNet max acc = 98.4375% (8 epochs) , initial acc = 42%, lr = ReduceLROnPlateau, grad_clip value  = 0.1  pre-trained weights = DenseNet169_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
+
+# efficientnet_b5 = 98.4375% (10 epochs), initial acc = 28%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = EfficientNet_B5_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
+
+# even tho vgg has a good acc it takes a lot of time to train caz it has lot of params (138M)
+# VGG - 19BN max acc = 92.1875%, (7 epochs) initial acc = 50%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = VGG19_BN_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
