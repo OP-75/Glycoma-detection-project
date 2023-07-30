@@ -1,13 +1,8 @@
-# ALL THESE WERE TRAINED ON RANDOMIZED WEIGHTS, BE SURE TO TRAIN THEM AGAIN ON PRETRAINED WEIGHTS
+# The below models were trained on pre-trained initialized weights.
 
+# after the given epochs the model overfit, I also changed/reduced lr manually if the models were getting a bad acc on the validation
 
-# both the inception models are in another file
-# Inception v3 (30 epochs, overfitting after this) acc = 82.8125%, initial acc = 0.5 (random guessing) no normailze() no grayscale(), lr = ReduceLROnPlateau, grad_clip value  = 0.1 
-# InceptionResnetv2 test acc = 89.0625% (31 epoch, overfitting after this), initial acc = 0.5 (random guessing) no normailze() no grayscale(), lr = ReduceLROnPlateau, grad_clip value  = 0.1 (54 million params)
-
-
-# only these models were trained on pre-trained weights, 
-# after the given epochs the model overfit
+#ViT have bad acc compared to others caz 1. All layers except classifier were freezed, 2. it reqires a large amout of data to train
 # ViT (Vision transformers)( vit_b_16(weights=torchvision.models.ViT_B_16_Weights.IMAGENET1K_SWAG_E2E_V1) 85M params) 20 or 30? epochs acc = 82.8125, initial acc = 56% (only the classifier was trained, upper layers were frozen)
 # ViT (Vision transformers)(vit_l_16(weights=torchvision.models.ViT_L_16_Weights.IMAGENET1K_SWAG_E2E_V1) 304M params) 10 epochs acc = 92.1875, initial acc = 48%  (only the classifier was trained, upper layers were frozen)
 
@@ -18,4 +13,8 @@
 # efficientnet_b5 = 98.4375% (10 epochs), initial acc = 28%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = EfficientNet_B5_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
 
 # even tho vgg has a good acc it takes a lot of time to train caz it has lot of params (138M)
-# VGG - 19BN max acc = 92.1875%, (7 epochs) initial acc = 50%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = VGG19_BN_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
+# VGG - 19BN max acc = 95.3125%, (10 epochs) initial acc = 50%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = VGG19_BN_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
+
+# both the inception models are in another file
+# Inception v3 (9 epochs) acc = 98.4375%, initial acc = 31%, lr = ReduceLROnPlateau, grad_clip value  = 0.1, pre-trained weights = Inception_V3_Weights.IMAGENET1K_V1, ALL LAYERS TRAINABLE
+# InceptionResnetv2 test acc = 98.4375% (7 epoch), initial acc = 48.4375% , lr = ReduceLROnPlateau, grad_clip value  = 0.1 (54 million params)
