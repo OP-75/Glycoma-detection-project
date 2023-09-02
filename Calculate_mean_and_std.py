@@ -2,10 +2,14 @@ from pathlib import Path
 import numpy as np
 import cv2
 
-train_path = r"D:\Datasets\dataset\train"  # for windows
-test_path = r"D:\Datasets\dataset\test"  # for windows
+path = r"D:\Datasets\Master DS train"  # for windows
 
-imageFilesDir = Path(test_path)
+test_acrima = r"D:\Datasets\MyACRIMA_splitted\test"
+test_g1020 = r"D:\Datasets\MyG1020\test"
+test_origa = r"D:\Datasets\MyOrigaFolder\test"
+test_githubDS = r"D:\Datasets\dataset\test"
+
+imageFilesDir = Path(test_githubDS)
 files = list(imageFilesDir.rglob('*.jpg'))
 
 # Since the std can't be calculated by simply finding it for each image and averaging like  
@@ -37,5 +41,7 @@ for i in range(numSamples):
 
 std = np.sqrt(stdTemp/numSamples)
 
-print(mean)
-print(std)
+print(f"mean = {mean}")
+print(f"std = {std}")
+
+
