@@ -2,14 +2,14 @@ from pathlib import Path
 import numpy as np
 import cv2
 
-path = r"D:\Folders to backup!!!\Glycoma DS\MyACRIMA_splitted\train"  # for windows
+path = r"D:\Datasets\MyOrigaFolder\train"  # for windows
 
-test_acrima = r"D:\Folders to backup!!!\Glycoma DS\MyACRIMA_splitted\test"
+# test_acrima = r"D:\Folders to backup!!!\Glycoma DS\MyACRIMA_splitted\test"
 # test_g1020 = r"D:\Datasets\MyG1020\test"
 # test_origa = r"D:\Datasets\MyOrigaFolder\test"
 # test_githubDS = r"D:\Datasets\dataset\test"
 
-imageFilesDir = Path(test_acrima)
+imageFilesDir = Path(path)
 files = list(imageFilesDir.rglob('*.jpg'))
 
 # Since the std can't be calculated by simply finding it for each image and averaging like  
